@@ -1,0 +1,76 @@
+{
+  "id": "prometheus",
+  "name": "Prometheus - Autonomous AI Agent",
+  "description": "Self-sustaining autonomous agent with MPC wallet, DeFi capabilities, token factory, and self-replication. The agent operates as an independent digital entrepreneur.",
+  "version": "0.1.0",
+  "skills": ["./skills"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "baseRpcUrl": {
+        "type": "string",
+        "default": "https://mainnet.base.org",
+        "description": "Base L2 RPC endpoint"
+      },
+      "dbcRpcUrl": {
+        "type": "string",
+        "default": "https://info.dbcwallet.io",
+        "description": "DBC chain RPC endpoint"
+      },
+      "dbcGpuApiUrl": {
+        "type": "string",
+        "default": "https://dbchain.ai/api",
+        "description": "DBC GPU Cloud Service API"
+      },
+      "litNetwork": {
+        "type": "string",
+        "default": "datil",
+        "description": "Lit Protocol network (datil or naga)"
+      },
+      "boxhireApiUrl": {
+        "type": "string",
+        "default": "https://api.boxhire.work/api/v1/proxy/v1",
+        "description": "BoxHire LLM inference API"
+      },
+      "safetyReserveUsd": {
+        "type": "number",
+        "default": 15,
+        "description": "Minimum USD reserve to keep for survival"
+      },
+      "maxSingleActionUsd": {
+        "type": "number",
+        "default": 10,
+        "description": "Maximum USD value for a single action"
+      },
+      "ceoTickIntervalMs": {
+        "type": "number",
+        "default": 60000,
+        "description": "Default CEO loop tick interval in ms"
+      },
+      "creatorAddress": {
+        "type": "string",
+        "description": "Creator's wallet address (angel investor)"
+      }
+    }
+  },
+  "uiHints": {
+    "boxhireApiUrl": {
+      "label": "BoxHire API URL",
+      "help": "OpenAI-compatible LLM inference endpoint"
+    },
+    "litNetwork": {
+      "label": "Lit Network",
+      "help": "datil for testnet, naga for V1 mainnet"
+    },
+    "safetyReserveUsd": {
+      "label": "Safety Reserve (USD)",
+      "help": "Agent will enter survival mode below this threshold"
+    },
+    "creatorAddress": {
+      "label": "Creator Wallet",
+      "help": "Your wallet address for receiving token allocations",
+      "sensitive": false
+    }
+  }
+}

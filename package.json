@@ -1,0 +1,35 @@
+{
+  "name": "@prometheus/prometheus",
+  "version": "0.1.0",
+  "description": "Prometheus - Autonomous AI Agent with self-sustaining wallet, DeFi, and self-replication",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "openclaw": {
+    "extensions": ["./dist/index.js"],
+    "install": { "localPath": "." }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "setup-wallet": "tsx scripts/setup-wallet.ts",
+    "fund-initial": "tsx scripts/fund-initial.ts",
+    "compile-contracts": "tsx scripts/compile-contracts.ts"
+  },
+  "dependencies": {
+    "@lit-protocol/lit-node-client": "^7.0.0",
+    "@lit-protocol/contracts-sdk": "^7.0.0",
+    "@lit-protocol/auth-helpers": "^7.0.0",
+    "@lit-protocol/constants": "^7.0.0",
+    "viem": "^2.0.0",
+    "dotenv": "^16.0.0"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "tsx": "^4.0.0",
+    "@types/node": "^20.0.0"
+  }
+}

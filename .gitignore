@@ -1,0 +1,16 @@
+node_modules/
+dist/
+data/
+.env
+.env.local
+*.log
+*.jsonl
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

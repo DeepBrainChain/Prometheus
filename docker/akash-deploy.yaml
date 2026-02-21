@@ -1,0 +1,50 @@
+# Akash SDL (Stack Definition Language) for Prometheus Agent
+# Backup deployment option when DBC GPU is unavailable
+
+---
+version: "2.0"
+
+services:
+  prometheus:
+    image: prometheus/agent:latest
+    env:
+      - NODE_ENV=production
+      - LIT_NETWORK=datil
+      - BASE_RPC_URL=https://mainnet.base.org
+      - DBC_RPC_URL=https://info.dbcwallet.io
+      - DBC_GPU_API_URL=https://dbchain.ai/api
+      # Secrets should be passed via environment
+      # - BOXHIRE_API_KEY=
+      # - BOXHIRE_JWT=
+      # - LIT_PKP_PUBLIC_KEY=
+    expose:
+      - port: 8080
+        as: 80
+        to:
+          - global: true
+
+profiles:
+  compute:
+    prometheus:
+      resources:
+        cpu:
+          units: 2
+        memory:
+          size: 4Gi
+        storage:
+          - size: 10Gi
+        gpu:
+          units: 0 # No GPU needed for the agent itself (inference via API)
+
+  placement:
+    dcloud:
+      pricing:
+        prometheus:
+          denom: uakt
+          amount: 1000 # ~$3/month
+
+deployment:
+  prometheus:
+    dcloud:
+      profile: prometheus
+      count: 1

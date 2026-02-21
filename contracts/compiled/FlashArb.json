@@ -1,0 +1,81 @@
+{
+  "contractName": "FlashArb",
+  "abi": [
+    {
+      "type": "constructor",
+      "inputs": [
+        {
+          "name": "_aavePool",
+          "type": "address"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "executeArbitrage",
+      "inputs": [
+        {
+          "name": "asset",
+          "type": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "name": "routerA",
+          "type": "address"
+        },
+        {
+          "name": "routerB",
+          "type": "address"
+        },
+        {
+          "name": "path",
+          "type": "address[]"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "rescueTokens",
+      "inputs": [
+        {
+          "name": "token",
+          "type": "address"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "rescueETH",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "ArbitrageExecuted",
+      "inputs": [
+        {
+          "name": "token",
+          "type": "address",
+          "indexed": true
+        },
+        {
+          "name": "loanAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "profit",
+          "type": "uint256"
+        }
+      ]
+    }
+  ],
+  "bytecode": "0x"
+}
